@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <script src="js/angular.min.js"></script>
+    <script src='js/angular-charts.min.js' type='text/javascript'></script>
+    <script src='js/angular-cookies.min.js' type='text/javascript'></script>
+    <script src='js/angular-dragdrop.min.js' type='text/javascript'></script>
+    
+    <script src="js/home.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/footer.js"></script>
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<!--Подключаем главный модуль приложения angular, с помощью директивы ng-app-->
+<body ng-app='crossApp'>
+    <!--С помощью директивы ng-controller, подключаем к приложению контроллер LoginCtrl. Создающий свой scope(область видимости), в блоке с классом class='loginBox'-->
+    <div class='loginBox' ng-controller='LoginCtrl'>
+        <!--С помощью ng-model, связываем обратной(двойной) связью, данные из шаблона и модели. В в соответвующих свойствах $scope, контроллера. Если будут меняться свойства в данных полях, они изменится и в модели контроллера.-->
+        <input type='text' id='userName' class='userName' ng-model='userName' placeholder='login'>
+        <input type='password' id='userPass' class='userPass' ng-model='pass' placeholder='passw'>
+        <!--С помощью ng-click, вызываем функцию login(), позволяющую авторизовываться привилигированным пользователям. Функция находится в файле login.js - $scope.login=.-->
+        <input type='button' id='login' ng-click='login()' class='btn' value='Login'>
+    </div>
+    <footer></footer>
+</body>
+</html>
