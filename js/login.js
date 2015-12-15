@@ -38,5 +38,4 @@ crossApp.controller('LoginCtrl', ['$scope', '$http', '$cookies', function ($scop
             alert('login failed');
         });
     }
-
 }]);
