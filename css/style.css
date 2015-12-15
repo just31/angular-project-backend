@@ -1,0 +1,184 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    font-size: 100%;
+    background-color: #F5F5F5;
+}
+
+.loginBox, .footerBox {
+    margin: 15px auto;
+    padding: 20px; 
+    width: 200px;
+    height: 200px;
+    text-align: center; 
+    border: 1px solid #D3D3D3; 
+    -moz-border-radius:8px;
+    -webkit-border-radius:8px;
+}
+
+
+.userName, .userPass, .subjectText {
+    -webkit-appearance: textfield;
+    padding: 1px;
+    background-color: white;
+    border: 2px inset;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    -webkit-rtl-ordering: logical;
+    -webkit-user-select: text;
+    cursor: auto;
+    color: black;
+    font-size: 14px;
+}
+
+
+.loginBox input:nth-child(2) {
+    margin-top: 5px;
+}
+
+.btn {
+    width: 175px;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    margin: 15px 0; 
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+.btn:hover {
+    background-color: #54AA54;    
+}
+
+.home {
+    padding: 5px;
+    width: 100%;
+    text-align: center;    
+}
+
+.graph {
+    margin: 5px;
+    width: 45%;
+    height: 500px;           
+    display: inline-block;
+    vertical-align: top;
+    -moz-border-radius:8px;
+    -webkit-border-radius:8px; 
+    background-color: white;
+    border-radius:8px;
+    border: solid 1px hsl(0, 0%, 50%);
+}
+
+.graphHead {
+    margin: 10px auto;
+    width: 260px;
+    display: block;
+    font-size: 20px;
+    color: #594540;
+    cursor: pointer;
+    -moz-box-shadow: 0px 10px 14px -7px #276873;
+    -webkit-box-shadow: 0px 10px 14px -7px #276873;
+}
+.chart {
+    position: relative;
+    left: 5px;
+    top: 30px;
+    width: 380px;
+    height: 380px;
+    font-size: 10px;
+}
+
+.updateBtn {
+    -moz-box-shadow: 0px 10px 14px -7px #276873;
+    -webkit-box-shadow: 0px 10px 14px -7px #276873;
+    box-shadow: 0px 10px 14px -7px #276873;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #599bb3), color-stop(1, #408c99));
+    background:-moz-linear-gradient(top, #599bb3 5%, #408c99 100%);
+    background:-webkit-linear-gradient(top, #599bb3 5%, #408c99 100%);
+    background:-o-linear-gradient(top, #599bb3 5%, #408c99 100%);
+    background:-ms-linear-gradient(top, #599bb3 5%, #408c99 100%);
+    background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+    background-color:#599bb3;
+    -moz-border-radius:8px;
+    -webkit-border-radius:8px;
+    border-radius:8px;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:11px;
+    font-weight:bold;
+    padding:5px 8px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #3d768a;
+    margin: 5px;
+    width: 50px;
+}
+.updateBtn:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #408c99), color-stop(1, #599bb3));
+    background:-moz-linear-gradient(top, #408c99 5%, #599bb3 100%);
+    background:-webkit-linear-gradient(top, #408c99 5%, #599bb3 100%);
+    background:-o-linear-gradient(top, #408c99 5%, #599bb3 100%);
+    background:-ms-linear-gradient(top, #408c99 5%, #599bb3 100%);
+    background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+    background-color:#408c99;
+}
+.header {
+    margin: auto;
+    width: 200px;
+    height: 50px;
+    display: block;
+    font-size: 20px;
+    font-family: sans-serif;
+    color: hsl(225, 42%, 18%);    
+}
+
+.userNameBox {
+    margin: 0 0 0 600px;
+    width: 200px;
+    font-family: sans-serif;    
+}
+
+.footerLink { 
+    margin: 20px 0;
+    text-align: center;
+}
+
+.footerLink a {
+    margin-right: 3px;
+    color: #337ab7;    
+    text-decoration: none;
+}
+
+.footerLink a:hover {
+    text-decoration: underline;
+}   
+
+.footerBox {
+    height: 250px;
+}
+
+.footerBox span { 
+    color: #594540;
+    font-weight: 700;
+}
