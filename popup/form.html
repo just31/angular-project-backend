@@ -1,0 +1,31 @@
+<!--Страница с формой, всплывающей в новом окне, при нажатии на ссылку 'Support', в футаре страниц приложения.-->
+<link rel="stylesheet" href="../css/style.css">
+<div class='footerBox'>
+    <span>Subject text<span> <input type='text' id='subjectText' class='subjectText'><br><br>
+    <span>Details text<span> <input type='text' id='detailsText' class='detailsText'><br><br>
+    <input type='button' id='sendButton' class='btn' value='send button' onclick='sendButton()'>
+    <input type='button' id='closeButton' class='btn' value='close button' onclick='closeButton()'>
+</div>
+
+<script>
+    // Функция sendButton(), проверяет на заполненность полей формы. Если хотя бы одно поле пустое, выдает предупреждающий текст.
+    // Если все поля заполнены, выводится сообщение об успешной отправке. И очищаются поля формы.
+    function sendButton()
+    {
+        if(document.getElementById('subjectText').value.replace(/\s+/g, '').length
+            && document.getElementById('detailsText').value.replace(/\s+/g, '').length) {
+            alert('Request is sent successfully!');
+            document.getElementById('subjectText').value="";
+            document.getElementById('detailsText').value="";
+        } else {
+            alert('The request is not sent. Fill in all the fields the form.');
+        }
+
+    }
+
+    // Функция closeButton(), закрывает всплывающее окно. По кнопке close button.
+    function closeButton()
+    {
+        close();
+    }
+</script>
