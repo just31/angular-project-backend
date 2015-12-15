@@ -1,0 +1,11 @@
+<!--Заголовок самой home-страницы-->
+<span class='header'>Cross Application</span>
+<!--Блок с выводом вошедшего пользователя и кнопкой разлогинивания 'logout'-->
+<div class='userNameBox'>
+    <!--Выводим в случае удачного входа на страницу home.html, имя авторизовавшегося пользователя.
+    Данный вывод обеспечивается двойной связью, между представлением и моделью.
+    Указанной с помощью директивы ng-model='userName', в поле для ввода - <input type='text' id='userName' class='userName' ng-model='userName' placeholder='login'>. В файле index.html.-->
+	<span>{{ userName }}</span>
+    <!--С помощью ng-click, вызываем функцию logout(), разлогинивания привилигированных пользователей. Функция находится в файле home.js - $scope.logout=.-->
+	<div class='updateBtn' ng-click='logout()'>Loguot</div>
+</div>	
