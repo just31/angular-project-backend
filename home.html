@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+
+    <script src='js/d3.min.js' type='text/javascript'></script>
+    <script src="js/angular.min.js"></script>
+    <script src='js/angular-cookies.min.js' type='text/javascript'></script>
+    <script src='js/angular-charts.min.js' type='text/javascript'></script>
+    <script src='js/angular-dragdrop.min.js' type='text/javascript'></script>
+    
+    <script src="js/home.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/footer.js"></script>
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<!--Подключаем главный модуль приложения angular, с помощью директивы ng-app-->
+<body ng-app="crossApp">
+<!--С помощью директивы ng-controller, подключаем к приложению контроллер CrossCtrl. Создающий свой scope(область видимости), в основном блоке приложения с классом class="home"-->
+<div class="home" ng-controller="CrossCtrl">
+    <!--Создаем элемент <header></header>, данный элемент будет заменяться шаблоном templateUrl, с помощью пользовательской директивы 'header' из файла header.js.-->
+    <header></header>
+    <!--jqyoui-draggable, указывает что данный блок, можно перемещать по странице. Данный метод работает с помощью библиотеки angular-dragdrop.min.js.-->
+    <div class="graph" data-drag="true" jqyoui-draggable>
+        <div class="dia" id="perSalesMan">
+            <!--Клик - onclick="showChart('chart1'), вызывает функцию, скрывающую или показывающую данный блок с диаграммой. В зависимости от переданного ей значения id.-->
+            <span class="graphHead" onclick="showChart('chart1')">total sales values for each sales man</span>
+            <!--Клик - ng-click='updateChart1()', вызывает функцию, обновляющую и перерисовывающую график.-->
+            <div class='updateBtn chart1' ng-click='updateChart1()'>Update</div>
+            <!--Блок с данными, для рисования соответствующей диаграммы. data-ac-chart="'pie'" - тип диаграммы, в данном случае круговая. data-ac-chart="'bar'" - столбчатая.
+            data-ac-data="chart1Data", сами данные которые используются, для построения графика. Приходят от соответствующей функции, в данном случае от updateChart1().
+            data-ac-config="config" - основные настройки диаграммы, прописаны в контроллере 'CrossCtrl', в файле home.js, в $scope.config=-->
+            <div data-ac-chart="'pie'" data-ac-data="chart1Data" data-ac-config="config" class="chart chart1"> </div>
+        </div>
+    </div>
+    <div class="graph" data-drag="true" jqyoui-draggable> 
+        <div class="dia" id="perMonth"></div>
+            <span class="graphHead" onclick="showChart('chart2')">total sales per month</span>
+            <div class='updateBtn chart2' ng-click='updateChart2()'>Update</div>
+            <div data-ac-chart="'bar'" data-ac-data="chart2Data" data-ac-config="config" class="chart chart2"> </div>
+    </div>
+    <div class="graph" data-drag="true" jqyoui-draggable> 
+        <div class="dia" id="topSalesMan"></div>
+            <span class="graphHead" onclick="showChart('chart3')">top 5 sales orders</span>
+            <div class='updateBtn chart3' ng-click='updateChart3()'>Update</div>
+            <div data-ac-chart="'bar'" data-ac-data="chart3Data" data-ac-config="config" class="chart chart3"> </div>
+    </div>
+    <div class="graph" data-drag="true" jqyoui-draggable> 
+        <div class="dia" id="topOrders"></div>
+            <span class="graphHead" onclick="showChart('chart4')">top 5 sales men in last 3 months</span>
+            <div class='updateBtn chart4' ng-click='updateChart4()'>Update</div>
+            <div data-ac-chart="'bar'" data-ac-data="chart4Data" data-ac-config="config" class="chart chart4"> </div>
+    </div>
+    <!--Создаем элемент <footer></footer>, данный элемент будет заменяться шаблоном templateUrl, с помощью пользовательской директивы 'footer' из файла footer.js.-->
+    <footer></footer>
+</div>
+
+<script>
+    // Функционал, для скрывания блоков с диаграммами, по клику по их заголовкам.
+
+    // Создаем объект с данными(флаги true), по каждому из id блоков с диаграммами.
+    var chartFlags = {'graph1': true, 'graph2': true, 'graph3': true, 'graph4': true};
+    // Функция showChart, принимает переданный ей id блока.
+    function showChart(chartId)
+    {
+        // Переменная flag, с помощью тернарного(тройного) оператора, проверяет полученный флаг id. Если он true, показывает блок.
+        var flag = chartFlags[chartId]? 'block' : 'none';
+
+        // В переменную chartElements, записываются все блоки с классом 'chartId' переданным в функцию.
+        var chartElements = document.getElementsByClassName(chartId);
+        // Далее все найденные блоки перебираются и им присваиваивается значение css-свойства: display. Находящееся в переменной flag.
+        for (var i=0; i<chartElements.length; i++ )
+            chartElements[i].style.display = flag;
+        // Далее значение флага в chartFlags[chartId], меняется на противоположное. Это позволяет скрывать и открывать блок с диаграммой, при клике по ее заголовку.
+        chartFlags[chartId] = !chartFlags[chartId]
+    }
+</script>
+
+</body>
+</html>
